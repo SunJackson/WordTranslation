@@ -73,11 +73,10 @@ class google_translate:
             'dt': 't',
             'ie': 'UTF-8',
             'oe': 'UTF-8',
-            'pc': '1',
-            'otf': '1',
+            'source': 'bh',
             'ssel': '0',
             'tsel': '0',
-            'kc': '2',
+            'kc': '1',
             'tk': tk,
             'q': text
         }
@@ -95,6 +94,7 @@ class google_translate:
                 'accept': '* / *',
                 'accept-encoding': 'gzip,deflate,br',
                 'accept-language': 'zh-CN, zh;q=0.9,en-US;q=0.8,en;q=0.7',
+                'content-disposition': 'attachment;filename = "f.txt"',
                 'referer': 'https://translate.google.cn/',
                 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
             }
@@ -114,6 +114,7 @@ class google_translate:
                     res = result[0]
             else:
                 res = result[0]
+
             trans_data = [i[0] for i in res if i[0]]
             res = '\n'.join(trans_data)
         except Exception as e:
@@ -126,13 +127,7 @@ class google_translate:
             return res
 
 if __name__ == '__main__':
-    train_translate = '''
-    (2) is trivial, computing some x- and y-coordinate distances up to some error tolerance. (1) involves parameterizing the ray and checking one of four inequalities. If the bottom left of the rectangle is ![](https://s0.wp.com/latex.php?latex=%28x_1%2C+y_1%29&bg=ffffff&fg=36312d&s=0)
- and the top right is ![](https://s0.wp.com/latex.php?latex=%28x_2%2C+y_2%29&bg=ffffff&fg=36312d&s=0)
- and the ray is written as ![](https://s0.wp.com/latex.php?latex=%5C%7B+%28c_1+%2B+t+v_1%2C+c_2+%2B+t+v_2%29+%5Cmid+t+%3E+0+%5C%7D&bg=ffffff&fg=36312d&s=0)
-, thenâ€”with some elbow greaseâ€”the following four equations provide all possibilities, with some special cases for vertical or horizontal rays:
-
-    '''
+    train_translate = '''possibilities'''
     trans = google_translate()
     res = trans.translate(train_translate)
     print(res)
